@@ -1,0 +1,24 @@
+{
+  "name": "react-login-form",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^15.6.0",
+    "react-dom": "^15.6.0"
+  },
+  "devDependencies": {
+    "body-parser": "1.17.1",
+    "express": "4.12.3",
+    "node-sass-chokidar": "0.0.3",
+    "react-scripts": "1.0.7"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
