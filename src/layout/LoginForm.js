@@ -5,11 +5,11 @@ function LoginForm () {
     <form className='login-form'>
       <h1>Login to bloop.xyz</h1>
       <div className='input-row'>
-        <label for='loginInput'>Username:</label>
+        <label htmlFor='loginInput'>Username:</label>
         <input className='big-input' type='text' id='loginInput' />
       </div>
       <div className='input-row'>
-        <label for='passwordInput'>Password:</label>
+        <label htmlFor='passwordInput'>Password:</label>
         <input className='big-input' type='password' id='passwordInput' />
       </div>
       <div className='feedback' />
