@@ -1,10 +1,15 @@
 import React from 'react'
 
+function openModal () {
+  console.log('open modal')
+  window.appState.isModalActive = true
+}
+
 function HelpCenter () {
   return (
     <div className='help-center'>
       <a href='#'>Don't have an account?</a>
-      <a id='helpBtn' href='#'>Need help logging in?</a>
+      <a id='helpBtn' onClick={openModal}>Need help logging in?</a>
     </div>
   )
 }

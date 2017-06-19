@@ -9,6 +9,7 @@ let initialState = {
   password: '',
   isLoading: false,
   isLogin: false,
+  isModalActive: false
 }
 
 window.appState = initialState

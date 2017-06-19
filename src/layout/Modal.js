@@ -1,14 +1,21 @@
 import React from 'react'
 
-function Modal () {
+
+function closeModal () {
+  window.appState.isModalActive = false
+}
+
+function Modal (active) {
+  let modalClass = ''
+  if (active) modalClass = 'active'
   return (
-    <div>
+    <div className={modalClass}>
       <div id='modalContent' className='modal'>
-        <button className='primary-btn x-btn'>x</button>
-        <div className='modal-body' />
-        <button className='primary-btn close-btn' id='closeBtn'>Close</button>
+        <button onClick={closeModal} className='primary-btn x-btn'>x</button>
+        <div className='modal-body'></div>
+        <button onClick={closeModal} className='primary-btn close-btn' id='closeBtn'>Close</button>
       </div>
-      <div id='modalBack' className='modal-back' />
+      <div onClick={closeModal} id='modalBack' className='modal-back' />
     </div>
   )
 }

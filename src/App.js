@@ -9,16 +9,19 @@ import Home from './layout/Home'
 
 function App (state) {
   let page = LoginWrapper(state)
-  if (state.isLogin) page = Home(state.username)
-
+  let classVal = 'login-content'
+  if (state.isLogin) {
+    page = Home(state.username)
+    classVal = 'main-content'
+  }
   return (
     <div className='app'>
       {Header()}
-      <section className='main-content'>
+      <section className={classVal}>
         {page}
       </section>
       {Footer()}
-      {Modal()}
+      {Modal(state.isModalActive)}
     </div>
   )
 }
