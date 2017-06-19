@@ -3,7 +3,6 @@ import LoginForm from './LoginForm'
 import HelpCenter from './HelpCenter'
 import Spinner from './Spinner'
 
-
 function LoginWrapper (state) {
   return (
     <div>
