@@ -12,7 +12,7 @@ function App (state) {
     <div className='app'>
       {Header()}
       <section className='main-content'>
-        {LoginForm()}
+        {LoginForm(state)}
         {HelpCenter()}
         {Spinner(state.isLoading)}
       </section>

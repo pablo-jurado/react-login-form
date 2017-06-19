@@ -1,20 +1,35 @@
 import React from 'react'
+import {appState, makeAjaxCall} from '../index'
 
-function LoginForm () {
+function handleInput (evt) {
+  appState.username = evt.target.value
+}
+
+function handlePass (evt) {
+  appState.password = evt.target.value
+}
+
+function handleSubmit (evt) {
+  evt.preventDefault()
+  appState.isLoading = true
+  makeAjaxCall()
+}
+
+function LoginForm (state) {
   return (
     <form className='login-form'>
       <h1>Login to bloop.xyz</h1>
       <div className='input-row'>
         <label htmlFor='loginInput'>Username:</label>
-        <input className='big-input' type='text' id='loginInput' />
+        <input onChange={handleInput} value={state.username} className='big-input' type='text' id='loginInput' />
       </div>
       <div className='input-row'>
         <label htmlFor='passwordInput'>Password:</label>
-        <input className='big-input' type='password' id='passwordInput' />
+        <input onChange={handlePass} className='big-input' type='password' id='passwordInput' />
       </div>
       <div className='feedback' />
       <div className='action-row'>
-        <button className='primary-btn' id='loginBtn'>Log In</button>
+        <button onClick={handleSubmit} className='primary-btn' id='loginBtn'>Log In</button>
       </div>
     </form>
   )
