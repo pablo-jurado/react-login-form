@@ -1,17 +1,16 @@
 import React from 'react'
-import {appState, makeAjaxCall} from '../index'
+import makeAjaxCall from '../index'
 
 function handleInput (evt) {
-  appState.username = evt.target.value
+  window.appState.username = evt.target.value
 }
 
 function handlePass (evt) {
-  appState.password = evt.target.value
+  window.appState.password = evt.target.value
 }
 
 function handleSubmit (evt) {
   evt.preventDefault()
-  appState.isLoading = true
   makeAjaxCall()
 }
 

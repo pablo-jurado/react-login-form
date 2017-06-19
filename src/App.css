@@ -5,7 +5,9 @@ html {
   box-sizing: inherit; }
 
 body {
-  position: relative; }
+  position: relative;
+  font-family: sans-serif;
+}
 
 .app {
   background-color: #DCE1E5;

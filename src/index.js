@@ -4,20 +4,21 @@ import axios from 'axios'
 
 console.log('testuser1 : ilovebananas', 'testadmin5 : always_name_your_functions', 'qauser3 : luv2manage5tate')
 
-let appState = {
+let initialState = {
   username: '',
   password: '',
-  isLoading: false
+  isLoading: false,
+  isLogin: false,
 }
 
-let loginUrl = 'http://127.0.0.1:7979/api/login'
-let userData = { username: appState.username, password: appState.password }
+window.appState = initialState
 
 function makeAjaxCall () {
+  window.appState.isLoading = true
   axios({
     method: 'post',
-    url: loginUrl,
-    data: userData
+    url: 'http://127.0.0.1:7979/api/login',
+    data: { username: window.appState.username, password: window.appState.password }
   })
     .then(loginResponse)
     .catch(handleError)
@@ -25,12 +26,13 @@ function makeAjaxCall () {
 
 
 function handleError (error) {
-  appState.isLoading = false
+  window.appState.isLoading = false
   console.log('ups!', error)
 }
 
 function loginResponse (response) {
-  appState.isLoading = false
+  window.appState.isLoading = false
+  window.appState.isLogin = true
   console.log(response.statusText)
   console.log(response.data.message)
 }
@@ -42,11 +44,11 @@ function loginResponse (response) {
 const rootEl = document.getElementById('root')
 
 function renderNow () {
-  ReactDOM.render(App(appState), rootEl)
+  ReactDOM.render(App(window.appState), rootEl)
   window.requestAnimationFrame(renderNow)
 }
 
 window.requestAnimationFrame(renderNow)
 
 
-export { appState, makeAjaxCall }
+export default makeAjaxCall
