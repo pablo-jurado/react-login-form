@@ -7,6 +7,12 @@ import axios from 'axios'
 let loginUrl = 'http://127.0.0.1:7979/api/login'
 let userData = { username: 'testuser1', password: 'ilovebananas' }
 
+let appState = {
+  username: null,
+  password: null,
+  isLoading: false
+}
+
 axios({
   method: 'post',
   url: loginUrl,
@@ -24,7 +30,7 @@ function loginResponse (response) {
   console.log(response.data.message)
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(App(appState), document.getElementById('root'))
 registerServiceWorker()
 
 console.log('testuser1 : ilovebananas')

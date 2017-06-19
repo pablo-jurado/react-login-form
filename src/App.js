@@ -7,14 +7,14 @@ import Spinner from './layout/Spinner'
 import Footer from './layout/Footer'
 import Modal from './layout/Modal'
 
-function App () {
+function App (state) {
   return (
     <div className='app'>
       {Header()}
       <section className='main-content'>
         {LoginForm()}
         {HelpCenter()}
-        {Spinner()}
+        {Spinner(state.isLoading)}
       </section>
       {Footer()}
       {Modal()}
