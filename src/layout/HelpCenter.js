@@ -2,7 +2,6 @@
 import React from 'react'
 
 function openModal () {
-  console.log('open modal')
   appState.isModalActive = true
 }
 
