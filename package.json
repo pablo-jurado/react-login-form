@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
     "react": "^15.6.0",
-    "react-dom": "^15.6.0"
+    "react-dom": "^15.6.0",
+    "react-marked": "^0.3.1"
   },
   "devDependencies": {
     "body-parser": "1.17.1",
     "express": "4.12.3",
-    "node-sass-chokidar": "0.0.3",
     "react-scripts": "1.0.7"
   },
   "scripts": {

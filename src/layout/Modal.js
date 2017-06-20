@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import marked from 'marked'
 
 let modalData = ''
 
@@ -15,7 +16,7 @@ function getModalText () {
 }
 
 function showResponse (response) {
-  modalData = response.data
+  modalData = marked(response.data)
 }
 
 function handleError (error) {
@@ -37,7 +38,7 @@ function Modal (active) {
     <div className={modalClass}>
       <div id='modalContent' className='modal'>
         <button onClick={closeModal} className='primary-btn x-btn'>x</button>
-        <div className='modal-body'>{modalData}</div>
+        <div className='modal-body' dangerouslySetInnerHTML={{__html: modalData}} />
         <button onClick={closeModal} className='primary-btn close-btn' id='closeBtn'>Close</button>
       </div>
       <div onClick={closeModal} id='modalBack' className='modal-back' />
