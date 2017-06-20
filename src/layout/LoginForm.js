@@ -1,20 +1,25 @@
+/* global appState */
 import React from 'react'
 import makeAjaxCall from '../index'
 
 function handleInput (evt) {
-  window.appState.username = evt.target.value
+  appState.username = evt.target.value
 }
 
 function handlePass (evt) {
-  window.appState.password = evt.target.value
+  appState.password = evt.target.value
 }
 
 function handleSubmit (evt) {
   evt.preventDefault()
+  if (appState.username === '' || appState.password === '') return
   makeAjaxCall()
 }
 
 function LoginForm (state) {
+  let feedback = ''
+  if (state.error === 400) feedback = 'Wrong Username or Password'
+  if (state.error === 500) feedback = 'Sorry we are having some difficulties'
   return (
     <form className='login-form'>
       <h1>Login to bloop.xyz</h1>
@@ -26,7 +31,7 @@ function LoginForm (state) {
         <label htmlFor='passwordInput'>Password:</label>
         <input onChange={handlePass} className='big-input' type='password' id='passwordInput' />
       </div>
-      <div className='feedback' />
+      <div className='feedback'>{feedback}</div>
       <div className='action-row'>
         <button onClick={handleSubmit} className='primary-btn' id='loginBtn'>Log In</button>
       </div>

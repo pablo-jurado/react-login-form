@@ -9,6 +9,7 @@ let initialState = {
   password: '',
   isLoading: false,
   isLogin: false,
+  error: null,
   isModalActive: false
 }
 
@@ -25,17 +26,14 @@ function makeAjaxCall () {
     .catch(handleError)
 }
 
-
 function handleError (error) {
   window.appState.isLoading = false
-  console.log('ups!', error)
+  window.appState.error = error.response.status
 }
 
 function loginResponse (response) {
   window.appState.isLoading = false
   window.appState.isLogin = true
-  console.log(response.statusText)
-  console.log(response.data.message)
 }
 
 // ---------------------------------------------------------
@@ -50,6 +48,5 @@ function renderNow () {
 }
 
 window.requestAnimationFrame(renderNow)
-
 
 export default makeAjaxCall

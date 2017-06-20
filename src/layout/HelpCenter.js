@@ -1,8 +1,9 @@
+/* global appState */
 import React from 'react'
 
 function openModal () {
   console.log('open modal')
-  window.appState.isModalActive = true
+  appState.isModalActive = true
 }
 
 function HelpCenter () {
